@@ -44,11 +44,12 @@ public class EtudiantController {
 		
 		
 		//on va chercher l'id demandé par l'utilisateur dans le textfield,
-		int num = Integer.valueOf(tf.getText());
+		//int num = Integer.valueOf(tf.getText());
+		String nom = tf.getText();
 		
 		//on utilise le DAO pour aller chercher le bon objet Etudiant,
 		PieceDAO pdao = new PieceDAO();
-		Piece p = pdao.find(num);
+		Piece p = pdao.findByName(nom).get(0);
 		
 		
 		System.out.println(p);

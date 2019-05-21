@@ -4,6 +4,9 @@ import application.view.EtudiantController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+
 import application.model.beans.Piece;
 import application.model.dao.PieceDAO;
 import javafx.scene.Scene;
@@ -32,7 +35,6 @@ public class Main extends Application {
 			System.out.println(p1);
 			
 			etc.fillView(p1);
-			
 			
 			//Etudiant et2 = etdao.findByName("Cahuzac").get(0);
 			//System.out.println(et2);
