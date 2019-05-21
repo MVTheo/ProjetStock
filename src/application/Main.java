@@ -1,6 +1,7 @@
 package application;
 	
-import application.view.EtudiantController;
+import application.view.ListePieceControlleur;
+import application.view.ListePieceControlleur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -20,12 +21,15 @@ public class Main extends Application {
 		try {
 			
 			//On charge le FXML, qui lui meme va intancier son contrôleur
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("view/viewEtudiant.fxml"));		
+			FXMLLoader loader = new FXMLLoader();    
+	           	       			
+			loader.setLocation(Main.class.getResource("view/viewListePiece.fxml"));		
+						
 			AnchorPane root = (AnchorPane) loader.load();
 			
 			//Je récupère le contrôleur associé à ce loader (le controleur de la vue fxml)
-			EtudiantController etc = loader.getController();
+			ListePieceControlleur etc = loader.getController();
+			
 			
 			//System.out.println(etc.toString());
 			
@@ -34,15 +38,9 @@ public class Main extends Application {
 			Piece p1 = pdao.find(1);
 			System.out.println(p1);
 			
-			etc.fillView(p1);
-			
-			//Etudiant et2 = etdao.findByName("Cahuzac").get(0);
-			//System.out.println(et2);
-			
-			//Etudiant et3 = etdao.findByName("Crews").get(0);
-
-			//Etudiant et4 = etdao.find(et3.getId());
-			//System.out.println(et4);
+			//etc.fillView(p1);
+			etc.afficherListe();
+		
 			
 			
 			Scene scene = new Scene(root);

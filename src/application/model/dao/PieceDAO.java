@@ -40,9 +40,10 @@ public class PieceDAO extends DAO<Piece> {
 				int bd_quantite = rs.getInt("quantite");
 				
 				
-				piece.setId(bd_id);
+				piece.setId(bd_id);				
 				piece.setNom(bd_nom);
 				piece.setQuantite(bd_quantite);	
+				
 			}
 			return piece;
 		}
@@ -59,7 +60,7 @@ public class PieceDAO extends DAO<Piece> {
 		
 		try {
 			Statement stmt = connect.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from Piece where nom='"+name+"'");
+			ResultSet rs = stmt.executeQuery("Select * from Piece where nom like '"+name+"%"+"'");
 			while (rs.next()) {
 				
 				Piece piece = new Piece();
