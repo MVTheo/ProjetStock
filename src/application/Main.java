@@ -39,7 +39,8 @@ public class Main extends Application {
 			System.out.println(p1);
 			
 			//etc.fillView(p1);
-			etc.afficherListe();
+			etc.intialize();
+			
 		
 			
 			

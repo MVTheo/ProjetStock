@@ -23,12 +23,10 @@ import application.model.beans.Piece;
  */
 public class PieceDAO extends DAO<Piece> {
 
-	//Premiere méthode find. Renvoie un Etudiant connaissant son identifiant.
+	
 	@Override
 	public Piece find(long id) {
-		//pouvoir créer un objet etudiant à partir d'un enregistrement en base
 		
-		//Je commence par créer un objet étudiant:
 		Piece piece = new Piece();
 
 		try {
@@ -91,12 +89,12 @@ public class PieceDAO extends DAO<Piece> {
 		try {
 			Statement stmt = connect.createStatement();
 			
-			//Ici on insere le nouvel etudiant
+			
 			stmt.execute("INSERT INTO Piece(nom, quantite) VALUES ('"+obj.getNom()+"','"+obj.getQuantite()+"')");
 			
 			
 			// pour récupérer l'objet que l'on vient d'insérer, cette fois avec l'ID auto-généré
-			ResultSet rs = stmt.executeQuery("Select * from etudiant");
+			ResultSet rs = stmt.executeQuery("Select * from Piece");
 			
 			//Je me place sur la dernière ligne
 			rs.last();
@@ -126,11 +124,59 @@ public class PieceDAO extends DAO<Piece> {
 	@Override
 	public Piece update(Piece obj) {
 		// TODO Auto-generated method stub
+		try {
+			Statement stmt = connect.createStatement();
+			
+			
+			stmt.execute("Update Piece set nom = '" +obj.getNom() +"' , " + "quantite = '"+ obj.getQuantite()+"' WHERE idPiece = " +obj.getId() );
+			
+			
+			// pour récupérer l'objet que l'on vient d'insérer, cette fois avec l'ID auto-généré
+			ResultSet rs = stmt.executeQuery("Select * from Piece");
+			
+			//Je me place sur la dernière ligne
+			rs.last();
+			
+			//Puis je fais comme avant (comme pour find() et findByName() )
+			Piece piece = new Piece();
+			int bd_id = rs.getInt("idPiece");
+			String bd_nom = rs.getString("nom");
+			int bd_quantite = rs.getInt("quantite");
+			
+			
+			piece.setId(bd_id);
+			piece.setNom(bd_nom);
+			piece.setQuantite(bd_quantite);	
+				
+			return piece;
+		
+		}
+		catch (Exception e) {
+			System.out.println("PieceDAO: create() failed: "+e.getLocalizedMessage());
+		}
+		
+		
 		return null;
 	}
 
 	@Override
 	public void delete(Piece obj) {
+		try {
+			Statement stmt = connect.createStatement();
+			
+			
+			stmt.execute("Delete From Piece WHERE idPiece = " +obj.getId() );
+			
+						
+			
+		}
+		catch (Exception e) {
+			System.out.println("PieceDAO: create() failed: "+e.getLocalizedMessage());
+		}
+		
+		
+		
+		
 		// TODO Auto-generated method stub
 		
 	}
