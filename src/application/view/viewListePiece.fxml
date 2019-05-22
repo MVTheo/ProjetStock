@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="589.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.ListePieceControlleur">
+<AnchorPane prefHeight="589.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.ListePieceControlleur">
    <children>
-      <VBox layoutX="6.0" layoutY="5.0" prefHeight="469.0" prefWidth="406.0" spacing="10.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox layoutX="6.0" layoutY="5.0" prefHeight="469.0" prefWidth="439.0" spacing="10.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
             <Label prefHeight="35.0" prefWidth="163.0" text="Liste des pièces en Stock" />
             <HBox prefHeight="36.0" prefWidth="405.0" spacing="30.0">
@@ -26,7 +26,7 @@
             </HBox>
             <ScrollPane fx:id="spA" prefHeight="150.0" prefWidth="406.0" />
             <TextField fx:id="tf" />
-            <Button mnemonicParsing="false" onAction="#afficherListe" text="Rechercer" />
+            <Button mnemonicParsing="false" onAction="#afficherListe" text="Rechercher" />
             <HBox prefHeight="30.0" prefWidth="405.0" spacing="30.0">
                <children>
                   <Label text="Id du produit" />
@@ -44,7 +44,9 @@
                </VBox.margin>
             </HBox>
             <ScrollPane fx:id="spS" prefHeight="135.0" prefWidth="406.0" />
-            <Button mnemonicParsing="false" text="Valider" />
+            <Button fx:id="valider" mnemonicParsing="false" onAction="#valider" text="Valider" />
+            <Button mnemonicParsing="false" onAction="#afficherHistorique" text="Historique" />
+            <Label fx:id="erreur" prefHeight="34.0" prefWidth="367.0" textFill="RED" />
          </children>
       </VBox>
    </children>

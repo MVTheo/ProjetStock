@@ -158,6 +158,43 @@ public class PieceDAO extends DAO<Piece> {
 		
 		return null;
 	}
+	
+	public Piece updateQ(Piece obj) {
+		// TODO Auto-generated method stub
+		try {
+			Statement stmt = connect.createStatement();
+			
+			
+			stmt.execute("Update Piece set nom = '" +obj.getNom() +"' , " + "quantite = '"+ obj.getQuantite()+"' WHERE idPiece = " +obj.getId() );
+			
+			
+			// pour récupérer l'objet que l'on vient d'insérer, cette fois avec l'ID auto-généré
+			ResultSet rs = stmt.executeQuery("Select * from Piece");
+			
+			//Je me place sur la dernière ligne
+			rs.last();
+			
+			//Puis je fais comme avant (comme pour find() et findByName() )
+			Piece piece = new Piece();
+			int bd_id = rs.getInt("idPiece");
+			String bd_nom = rs.getString("nom");
+			int bd_quantite = rs.getInt("quantite");
+			
+			
+			piece.setId(bd_id);
+			piece.setNom(bd_nom);
+			piece.setQuantite(bd_quantite);	
+				
+			return piece;
+		
+		}
+		catch (Exception e) {
+			System.out.println("PieceDAO: create() failed: "+e.getLocalizedMessage());
+		}
+		
+		
+		return null;
+	}
 
 	@Override
 	public void delete(Piece obj) {

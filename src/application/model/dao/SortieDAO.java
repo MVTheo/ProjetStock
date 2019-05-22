@@ -1,5 +1,9 @@
 package application.model.dao;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import application.model.beans.Piece;
 import application.model.beans.Sortie;
 
 public class SortieDAO extends DAO<Sortie>{
@@ -16,7 +20,25 @@ public class SortieDAO extends DAO<Sortie>{
 
 	@Override
 	public Sortie create(Sortie obj) {
-		// TODO Auto-generated method stub
+		try {
+			Statement stmt = connect.createStatement();
+			
+			
+			
+			stmt.execute("INSERT INTO Sortie(nbPiece, Piece_idPiece) VALUES ('"+obj.getQuantite()+"','"+obj.getPieceId()+"')");
+			
+			
+			// pour récupérer l'objet que l'on vient d'insérer, cette fois avec l'ID auto-généré
+			
+			
+			
+		
+		}
+		catch (Exception e) {
+			System.out.println("PieceDAO: create() failed: "+e.getLocalizedMessage());
+		}
+		
+		
 		return null;
 	}
 
