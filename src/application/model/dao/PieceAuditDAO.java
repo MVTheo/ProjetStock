@@ -39,7 +39,7 @@ public class PieceAuditDAO extends DAO<Piece> {
 		
 		try {
 			Statement stmt = connect.createStatement();
-			ResultSet rs = stmt.executeQuery("Select * from piece_audit where piece_name like '"+name+"%"+"'");
+			ResultSet rs = stmt.executeQuery("Select * from piece_audit where piece_name like '"+name+"%"+"' ORDER BY id DESC");
 			while (rs.next()) {
 				
 				PieceAudit piece = new PieceAudit();

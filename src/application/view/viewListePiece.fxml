@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+
 <AnchorPane prefHeight="589.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.ListePieceControlleur">
    <children>
       <VBox layoutX="6.0" layoutY="5.0" prefHeight="469.0" prefWidth="439.0" spacing="10.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
@@ -34,7 +35,8 @@
                   <Label text="Quantité">
                      <padding>
                         <Insets left="40.0" />
-                     </padding></Label>
+                     </padding>
+                  </Label>
                </children>
                <padding>
                   <Insets top="30.0" />

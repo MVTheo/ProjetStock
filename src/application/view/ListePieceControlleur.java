@@ -58,7 +58,7 @@ public class ListePieceControlleur {
 	@FXML
 	private Button valider;
 	
-	private int colonne=0;
+	private int ligne=0;
 	private GridPane gp;
 	private GridPane gpSortie;
 	int indexSortie=0;
@@ -181,10 +181,10 @@ public class ListePieceControlleur {
 			gpSortie.setHgap(5);
 			gpSortie.setVgap(5);
 		
-			GridPane.setConstraints(lbId, 0, colonne);
-			GridPane.setConstraints(lbNom, 1, colonne);
-			GridPane.setConstraints(tfQauntite,2, colonne);
-			GridPane.setConstraints(Delete,3 , colonne);
+			GridPane.setConstraints(lbId, 0, ligne);
+			GridPane.setConstraints(lbNom, 1, ligne);
+			GridPane.setConstraints(tfQauntite,2, ligne);
+			GridPane.setConstraints(Delete,3 , ligne);
 			gpSortie.setVgap(5.0);
 			gpSortie.setHgap(50.0);
 			gpSortie.getChildren().add(lbId);
@@ -195,7 +195,7 @@ public class ListePieceControlleur {
 			text.add(tfQauntite);
 			System.out.println(listSortie);
 			Delete.setOnAction(event -> supprimer(nbId, lbId, lbNom, tfQauntite, Delete));
-			colonne++;
+			ligne++;
 					
 		}
 		//String quantite = String.valueOf(p.get(index).getQuantite());
@@ -217,7 +217,7 @@ public class ListePieceControlleur {
 		
 		listSortie.remove(index);
 		text.remove(index);
-		colonne--;
+		ligne--;
 		System.out.println(listSortie);
 		
 	}
@@ -232,7 +232,7 @@ public class ListePieceControlleur {
 			listSortie.remove(i);
 			text.remove(i);
 			
-			colonne--;		
+			ligne--;		
 		}
 		
 		
@@ -274,7 +274,8 @@ public class ListePieceControlleur {
 		if(OK) {
 			listSortie.clear();
 			text.clear();
-			gpSortie.getChildren().clear();	
+			gpSortie.getChildren().clear();
+			ligne=0;
 		}
 			
 	}
