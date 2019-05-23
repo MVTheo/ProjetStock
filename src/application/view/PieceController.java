@@ -75,20 +75,35 @@ public class PieceController {
 			
 			String id = String.valueOf(pa.get(i).getId());
 			String Operation = String.valueOf(pa.get(i).getOperation());
+			String name = String.valueOf(pa.get(i).getPieceName());
+			String QuantiteEnlever = String.valueOf(pa.get(i).getQuantiteEnlever());
+			String QuantiteRestante = String.valueOf(pa.get(i).getQuantiteRestante());
+			String date = String.valueOf(pa.get(i).getTemps());
 			
 			Label lbId = new Label(id);
-			Label lbNom = new Label(Operation);
-			
+			Label lbOperation = new Label(Operation);
+			Label lbName = new Label(name);
+			Label lbQuantiteEnlever = new Label(QuantiteEnlever);
+			Label lbQuantiteRestante = new Label(QuantiteRestante);
+			Label lbDate = new Label(date);
 			
 	
 			GridPane.setConstraints(lbId, 0, i);			
-			GridPane.setConstraints(lbNom, 1, i);
+			GridPane.setConstraints(lbOperation, 1, i);
+			GridPane.setConstraints(lbName, 2, i);
+			GridPane.setConstraints(lbQuantiteEnlever, 3, i);
+			GridPane.setConstraints(lbQuantiteRestante, 4, i);
+			GridPane.setConstraints(lbDate, 5, i);
 			
 			gp.setVgap(5.0);
 			gp.setHgap(50.0);			
 		
 			gp.getChildren().add(lbId);
-			gp.getChildren().add(lbNom);			
+			gp.getChildren().add(lbOperation);	
+			gp.getChildren().add(lbName);	
+			gp.getChildren().add(lbQuantiteEnlever);	
+			gp.getChildren().add(lbQuantiteRestante);	
+			gp.getChildren().add(lbDate);	
 			
 		}
 		
